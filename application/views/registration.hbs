@@ -1,0 +1,23 @@
+
+            <body>
+                <h1>Registering Here</h1>
+                <form class="form-class" onsubmit="return validForm()" method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
+                    <fieldset>
+                        <div class="form">
+                            <label for="username"> Username: <input type="text"  name="username" id="username"></label>
+                            <span id="errorUsername"></span> 
+                            <label for="email"> Email: <input type="email" name="email" id="email"></label>
+                            <label for="password"> Password: <input type="password"  name="password" id="password"></label>
+                            <span id="errorPassword"></span>
+                            <label for="confirm Password"> Confirm Password: <input type="password"  name="confirmation" id="confirm"></label>
+                            <span id="confirmError"></span>
+                            <label>If you are over the age of 13. Click the box <input type="checkbox" ></label>
+                            <label>
+                                Please read the <a href="">TOS</a> and <a href=""> Privacy</a> <input type="checkbox" > 
+                            </label>
+                            <label id ="submit">Submit: <input type="submit"></label>
+                            
+                        </div>
+                    </fieldset>
+                </form>
+            </body>

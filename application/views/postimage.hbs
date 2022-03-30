@@ -1,0 +1,60 @@
+
+            <body>
+                <form id="post-image" method="POST" enctype="multipart/form-data">
+                    <fieldset>
+                        <h1>Please Post Your Image here</h1>
+                        <div class="Title">
+                            <label>Post Title</label>
+                            <input id="post-title" name ="title" type="text" required>
+                        </div>
+                        <div class="Discription">
+                            <label>Post Description</label>
+                            <input id="post-title"type="text" name="description" required>
+                        </div>
+                        <div class ="Post">
+                            <label>Post Image:
+                            <input type="file" id="image" name="uploadImage" required>
+                            </label>
+                        </div>
+                        <div class ="Confirm">
+                            <label>Please Read:  
+                                <a href="Nothing" title="Nothing">Acceptable Use of Privacy </a>
+                                <input type="checkbox" required>
+                            </label>
+                            <input type="submit">
+                        </div>
+                    </fieldset>
+                </form>
+                <script>
+                    const _form = document.getElementById("post-image");
+                    _form.onsubmit = function(event){
+                        event.preventDefault();
+                        let _body = new FormData(_form);
+                        {{!-- fetch("/posts/createPost",{
+                            body: _body,
+                            method: "POST"
+                        })
+                        .then((data) =>{
+                            console.log(data);
+                            return data.json();
+                        })
+                        .then((dataAsObject) =>{
+                            console.log(dataAsObject);
+                            alert(dataAsObject.message);
+                            location.replace(dataAsObject.redirect);
+                        })
+                        .catch(err => console.log(err)); --}}
+
+                        axios("/posts/createPost",{
+                            data: _body,
+                            method: "POST"
+                        })
+                        .then((data) =>{
+                            console.log(data.data);
+                            alert(data.data.message);
+                            location.replace(data.data.redirect);
+                        })
+                        .catch(err => console.log(err));
+                    }
+                </script>
+            </body>

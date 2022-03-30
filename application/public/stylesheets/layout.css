@@ -1,0 +1,262 @@
+body{
+    text-align: center;
+    background-image: url(./image.jpg);
+    background-size: cover;
+    overflow: auto;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#banner{
+    margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 2%;
+    color: white;
+    border: 15px double#708090;
+    background-color: #232f3e;
+    border-color: white;
+}
+.pages{
+    list-style-type: none;
+
+
+}
+li {
+    display: inline-block;
+    padding-inline-start: 200px;
+}  
+.nav{
+    display:inline;
+}
+div #Title{
+    font-size:xx-large;
+    
+}
+.Footer {
+    padding-right: 90px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-size: large;
+ }
+
+.Box{
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto;
+    font-size: x-large;
+
+}
+
+div .TitleBox{
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    border: 2px solid rgb(44, 89, 212);
+    border-radius: 20px;
+    padding: auto;
+    margin: auto;
+}
+[id="banner"] {
+    text-align: center;
+}
+
+
+fieldset{
+    border: 0;
+    margin:auto
+}
+
+
+fieldset > div{
+    display: grid;
+    border: 3px solid rgb(44, 89, 212);
+    border-radius: 20px;
+    width: 25%;
+    padding: 30px;
+    padding-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+#username{
+    margin-left: 55px;
+}
+#email {
+    margin-left: 90px;
+}
+#password{
+    margin-left: 60px;
+}
+fieldset h1{
+    margin-bottom: 2%;
+}
+
+.Confirm a{
+    color: blue;
+}
+section{
+    display: grid;
+    border: 3px solid rgb(44, 89, 212);
+    border-radius: 20px;
+    width: 25%;
+    padding: 30px;
+    padding-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+.Image{
+    width: 100%;
+    height: 200px;
+    background-image: url("https://i.ytimg.com/vi/ImB_hLMg3pQ/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 0px;
+    margin-left: 750px;
+}
+#flash-message{
+    position: fixed;
+    left: 50%;
+    top: 18%;
+    transform: translate(-50%,0);
+}
+
+#flash-message .alert-danger{
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 5px;
+    color:red;
+}
+#flash-message .alert-success{
+    text-align: center;
+    border: 2px solid green;
+    border-radius: 5px;
+    color:green;
+}
+#flash-message .alert-info{
+    text-align: center;
+    border: 2px solid green;
+    border-radius: 5px;
+    color:green;
+}
+
+#post-container{
+    grid-area: content;
+    padding-top: .35em;
+    padding-bottom: .35em;
+    display: grid;
+    grid-gap: .2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "photoinfo comments";
+
+}
+
+#photo-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    grid-area: photoinfo;
+}
+
+#post-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div[id=photopath] > p {
+    margin-bottom: .2em;
+}
+
+div[post-container] > div[id^=post-]{
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+div[post-container] > img[id=post-]{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#comment-container{
+    display: grid;
+    justify-self: stretch;
+    grid-area: comments;
+    grid-template-rows: auto 75px;
+    grid-template-columns: 1fr;
+    gap: .2rem;
+    grid-template-areas:
+    "messages"
+    "comment-box";
+    max-height: 80vh;
+}
+
+#messages{
+    grid-area: messages;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+    border: 1px solid #cccccc;
+    box-shadow: -2px 2px 4px 4px #e0e0e0;
+    border-radius: .35rem;
+}
+
+div[id^=message-]{
+    display: grid;
+    grid-template-rows: .3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: .2em;
+    padding: .25rem;
+    margin: .2rem;
+    font-size: 1rem;
+    border: .0625rem solid #ced4da;
+    border-radius: .25rem;
+    grid-template-areas: 
+    "author created"
+    "comment comment";
+}
+
+.author-text{
+    grid-area: author;
+    justify-self: start;
+    color: blue;
+}
+
+.comment-text{
+    grid-area: comment;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    max-height: 75px;
+}
+
+.date-posted{
+    grid-area: created;
+    justify-self: end;
+}
+
+#post-image{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 60%;
+}
+
+#comment-box-text {
+    width: 100%;
+    height: 100%;
+}
+
+#Home{
+    border: .0625rem solid #ced4da;
+}

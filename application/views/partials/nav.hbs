@@ -1,0 +1,16 @@
+<div id ="Navigation">
+    <nav>
+        <ul class="pages">
+            <li class= "nav" id="Home"><a href="/">Home</a></li>
+            <li> Search Here  <input id="search-text" name="search-text"type="text"/>
+            <i id="search-button"><button type="submit"><i class="fa fa-search"></i></button></i>
+            </li>
+            <li class="nav"><a href="/postimage">Post Image</a></li>
+            {{#if logged}}
+            <li class="nav"><a id="logout">Log Out</a></li>
+            {{else}}         
+            <li class="nav"><a href="/login">Log In</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+</div>

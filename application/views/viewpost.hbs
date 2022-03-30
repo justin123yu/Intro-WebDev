@@ -1,0 +1,81 @@
+<div id="post-container">
+    <div id="photo-container">
+        <div id="post-title">{{currentPost.title}}</div>
+        <div id="post-info">
+            <p><span class="form-label"> Posted By:</span> <span id="post-author"> {{currentPost.username}}</span></p>
+            <p><span class="form-label"> Posted At:</span> <span id="post-date"> {{currentPost.created}}</span></p>
+        </div>
+        <div id="post-description"> {{currentPost.description}}</div>
+        <img id="post-image" src="/{{currentPost.photopath}}" alt="A photo should be here">
+    </div>
+    <div id="comment-container">
+        <div id="messages">
+            {{#each currentPost.comments}}
+            {{>comments this}}
+            {{/each}}
+        </div>
+        <div id="comment-box">
+            <textarea id="comment-box-text" placeholder="Enter Comment Here!"></textarea>
+            <i id="comment-box-button"><button type="submit"><i class="fa fa-arrow-circle-up" style="font-size: 32px" ></i></button></i>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) =>{
+        document.querySelectorAll('span[class=date-posted]').forEach((postedDate) => {
+            postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+        });
+    });
+
+    function addMessage(data) {
+        let template = document.createElement('template');
+        template.innerHTML = 
+        `   <div id="message-${data.commentId}">
+                <strong class="author-text">@${data.username}</strong>
+                <span class="date-posted"> ${new Date().toLocaleString()}</span>
+                <div class="comment-text"> ${data.comment}</div>
+            </div>
+            `;
+            let messages = document.getElementById('messages');
+            messages.innerHTML = template.innerHTML + messages.innerHTML;
+
+    }
+
+    document.getElementById("comment-box-button").onclick = (event) => {
+        let commentText = document.getElementById("comment-box-text").value;
+        let postId = document.location.pathname.match(/\d+/g).map(Number)[0];
+        if(!commentText){
+            return;
+        }
+
+        let fetchOptions = {
+            method:"POST",
+            headers: {
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify({
+                comment: commentText,
+                postId: postId
+            })
+        }
+            fetch('/comments/create', fetchOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if(data.code == 1) {
+                    addMessage(data);
+                } else {
+                    addFlashFromFrontEnd(data.message, data.status);
+                }
+            })
+            .catch(err => console.log(err));
+        }
+</script>
+
+
+
+
+
+
+
