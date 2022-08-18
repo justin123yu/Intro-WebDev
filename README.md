@@ -1,9 +1,7 @@
 # Build/Run Instructions
 
 ## Build Instructions
-1. Since I didn't use bootstrap or any outer server side front end. Won't need to build anything
-other then from the videos on ilearn.
-
+  Im usimg mysql so to build the database, simpliy run in your terminal run "npm run builddb" to build the database to store information.
 ## Run Instructions
 1. cd into application
 2. run npm start
